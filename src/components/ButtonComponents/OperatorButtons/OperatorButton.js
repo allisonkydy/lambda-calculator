@@ -7,7 +7,7 @@ const OperatorButton = (props) => {
       <button 
         className="operator-button"
         onClick={() => {
-          props.handleDisplay(props.operatorValue);          
+          props.operation(props.operatorValue);          
         }}
       >{props.operator}</button>
     </>

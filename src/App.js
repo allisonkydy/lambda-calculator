@@ -18,8 +18,18 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
   const [displayValue, setDisplayValue] = useState(0);
+  const [holdValue, setHoldValue] = useState();
+  const [holdOperator, setHoldOperator] = useState();
 
   const handleDisplay = (item) => {
+    if (item === '/' ||
+        item === '*' ||
+        item === '-' ||
+        item === '+') {
+          setHoldValue(displayValue);
+          setHoldOperator(item);
+        }
+
     if (item === '/' ||
         item === '*' ||
         item === '-' ||
@@ -27,9 +37,8 @@ function App() {
         displayValue === '/' ||
         displayValue === '*' ||
         displayValue === '-' ||
-        displayValue === '+') {
-        setDisplayValue(item)
-    } else if (displayValue === 0) {
+        displayValue === '+' ||
+        displayValue === 0) {
       setDisplayValue(item);
     } else {
       setDisplayValue(displayValue => displayValue + item);
@@ -49,6 +58,26 @@ function App() {
     setDisplayValue(0);
   }
 
+  const calculate = () => {
+    const holdNum = Number(holdValue);
+    const displayNum = Number(displayValue);
+
+    switch(holdOperator) {
+      case '/':
+        setDisplayValue(holdNum / displayNum);
+        break;
+      case '*':
+        setDisplayValue(holdNum * displayNum);
+        break;
+      case '-':
+        setDisplayValue(holdNum - displayNum);
+        break;
+      case '+':
+        setDisplayValue(holdNum + displayNum);
+        break;
+    }
+  }
+
   return (
     <div className="container">
       <Logo />
@@ -58,7 +87,7 @@ function App() {
         <div className="buttons">
           <Specials handleClear={handleClear} togglePolarity={togglePolarity} takePercentage={takePercentage}/>
           <Numbers handleDisplay={handleDisplay}/>
-          <Operators handleDisplay={handleDisplay}/>
+          <Operators handleDisplay={handleDisplay} calculate={calculate}/>
         </div>
       </div>
     </div>
