@@ -19,8 +19,26 @@ function App() {
 
   const [displayValue, setDisplayValue] = useState(0);
 
-  const handleDisplay = (number) => {
-    setDisplayValue(displayValue => displayValue + number);
+  const handleDisplay = (item) => {
+    if (item === '/' ||
+        item === '*' ||
+        item === '-' ||
+        item === '+' ||
+        displayValue === '/' ||
+        displayValue === '*' ||
+        displayValue === '-' ||
+        displayValue === '+') {
+        setDisplayValue(item)
+    } else if (displayValue === 0) {
+      setDisplayValue(item);
+    } else {
+      setDisplayValue(displayValue => displayValue + item);
+    }
+  }
+
+  const togglePolarity = () => {
+    if (displayValue[0] === '-') setDisplayValue(displayValue => displayValue.slice(1));
+    else setDisplayValue('-' + displayValue);
   }
 
   const handleClear = () => {
@@ -34,9 +52,9 @@ function App() {
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
         <Display displayValue={displayValue} />
         <div className="buttons">
-          <Specials handleClear={handleClear}/>
+          <Specials handleClear={handleClear} togglePolarity={togglePolarity}/>
           <Numbers handleDisplay={handleDisplay}/>
-          <Operators />
+          <Operators handleDisplay={handleDisplay}/>
         </div>
       </div>
     </div>

@@ -18,6 +18,8 @@ const Specials = (props) => {
       {specialState.map(special => {
           if (special === "C") {
             return <SpecialButton key={special} special={special} handleSpecial={props.handleClear}/>
+          } else if (special === "+/-") {
+            return <SpecialButton key={special} special={special} handleSpecial={props.togglePolarity}/>
           } else {
             return <SpecialButton key={special} special={special} />
           }
