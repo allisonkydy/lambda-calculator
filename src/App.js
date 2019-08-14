@@ -41,6 +41,10 @@ function App() {
     else setDisplayValue('-' + displayValue);
   }
 
+  const takePercentage = () => {
+    setDisplayValue(displayValue / 100);
+  }
+
   const handleClear = () => {
     setDisplayValue(0);
   }
@@ -52,7 +56,7 @@ function App() {
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
         <Display displayValue={displayValue} />
         <div className="buttons">
-          <Specials handleClear={handleClear} togglePolarity={togglePolarity}/>
+          <Specials handleClear={handleClear} togglePolarity={togglePolarity} takePercentage={takePercentage}/>
           <Numbers handleDisplay={handleDisplay}/>
           <Operators handleDisplay={handleDisplay}/>
         </div>

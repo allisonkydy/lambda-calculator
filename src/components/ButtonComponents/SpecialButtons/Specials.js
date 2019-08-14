@@ -21,7 +21,7 @@ const Specials = (props) => {
           } else if (special === "+/-") {
             return <SpecialButton key={special} special={special} handleSpecial={props.togglePolarity}/>
           } else {
-            return <SpecialButton key={special} special={special} />
+            return <SpecialButton key={special} special={special} handleSpecial={props.takePercentage}/>
           }
         })
       }
