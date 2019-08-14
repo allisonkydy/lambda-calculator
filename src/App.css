@@ -1,0 +1,96 @@
+* {
+   box-sizing: border-box;
+}
+
+.container {
+   max-width: 500px;
+   margin: 30px auto;
+   padding: 40px;
+   border-radius: 10px;
+   background-color: #BB1233;
+}
+
+.display {
+   width: 100%;
+   height: 100px;
+   margin: 20px 0 30px;
+   border-radius: 50px;
+   background-color: #2D2829;
+   color: white;
+   font-size: 48px;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+}
+
+.display-value {
+   margin-right: 20px;
+}
+
+.buttons {
+   height: 495px;
+   display: flex;
+   flex-flow: column wrap;
+   align-content: space-between;
+}
+
+.specials {
+   width: 73%;
+   display: flex;
+   justify-content: space-between;
+}
+
+.numbers {
+   width: 73%;
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+
+.operators {
+   width: 20%;
+   display: flex;
+   flex-direction: column;
+}
+
+.number-button,
+.operator-button, 
+.special-button {
+   height: 84px;
+   width: 84px;
+   margin-bottom: 15px;
+   border-radius: 50%;
+   border: none;
+   text-align: center;
+   font-size: 36px;
+   color: white;
+   box-shadow: 0 4px #420108;
+   outline: none;
+}
+
+.number-button:active,
+.operator-button:active,
+.special-button:active {
+   box-shadow: none;
+   transform: translateY(4px)
+}
+
+.special-button {
+   background-color: #2061B0;
+}
+
+.number-button {
+   background-color: #113C78;
+}
+
+.number-0 {
+   width: 200px;
+   border-radius: 50px;
+}
+
+.operator-button {
+   background-color: #3DB5E5;
+}
+
+
+
