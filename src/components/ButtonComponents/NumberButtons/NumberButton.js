@@ -7,8 +7,7 @@ const NumberButton = (props) => {
       <button 
         className={`number-button number-${props.number}`}
         onClick={() => {
-            props.handleValue(props.number);
-            props.handleDisplay();
+            props.handleDisplay(props.number);
           }
         }
       >

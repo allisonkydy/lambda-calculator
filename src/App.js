@@ -18,21 +18,12 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
   const [displayValue, setDisplayValue] = useState(0);
-  const [number, setNumber] = useState();
-  const [valueArray, setValueArray] = useState([]);
 
-  const handleDisplay = () => {
-    const currentDisplay = Number(valueArray.join(''));
-    setDisplayValue(currentDisplay);
-  }
-
-  const handleValue = num => {
-    setNumber(num);
-    valueArray.push(num);
+  const handleDisplay = (number) => {
+    setDisplayValue(displayValue => displayValue + number);
   }
 
   const handleClear = () => {
-    setValueArray([]);
     setDisplayValue(0);
   }
 
@@ -44,7 +35,7 @@ function App() {
         <Display displayValue={displayValue} />
         <div className="buttons">
           <Specials handleClear={handleClear}/>
-          <Numbers handleValue={handleValue} handleDisplay={handleDisplay}/>
+          <Numbers handleDisplay={handleDisplay}/>
           <Operators />
         </div>
       </div>
