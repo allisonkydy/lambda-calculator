@@ -17,9 +17,9 @@ const Specials = (props) => {
        it any props needed by the child component*/}
       {specialState.map(special => {
           if (special === "C") {
-            return <SpecialButton special={special} handleSpecial={props.handleClear}/>
+            return <SpecialButton key={special} special={special} handleSpecial={props.handleClear}/>
           } else {
-            return <SpecialButton special={special} />
+            return <SpecialButton key={special} special={special} />
           }
         })
       }
